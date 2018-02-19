@@ -13,22 +13,34 @@ var app = firebase.initializeApp(config);
 var database = app.database();
 
 function sleep() {
+	console.log("sleep");
 	//exec(`powercfg -hibernate off`);
-	exec(`rundll32.exe powrprof.dll,SetSuspendState 0,1,0`);
+	//exec(`rundll32.exe powrprof.dll,SetSuspendState 0,1,0`);
 }
 
 function clear() {
+	console.log("clear");
 	return database.ref("sleep").set(null);
 }
 
 function watch() {
-	return database.ref("sleep").on("child_added", function (data) {
-		console.log(data.key);
+	console.log("watch");
 
-		clear().then(() => {
-			watch();
+	return database.ref("sleep").on("child_added", function (snapshot) {
+		//console.log(snapshot.key);
+		console.log(snapshot.val());
+
+		var data = snapshot.val();
+		var date = new Date(data.date);
+		var start = new Date();
+		start.setHours(start.getHours() - 1);
+
+		if (start < date) {
 			sleep();
-		});
+		}
+
+		//always clear
+		clear();
 	});
 }
 

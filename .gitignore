@@ -1,2 +1,4 @@
 /node_modules
 /daemon
+/firebase_functions/node_modules
+/windows/daemon
