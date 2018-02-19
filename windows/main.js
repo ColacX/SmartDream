@@ -15,7 +15,7 @@ var database = app.database();
 function sleep() {
 	console.log("sleep");
 	//exec(`powercfg -hibernate off`);
-	//exec(`rundll32.exe powrprof.dll,SetSuspendState 0,1,0`);
+	exec(`rundll32.exe powrprof.dll,SetSuspendState 0,1,0`);
 }
 
 function clear() {
@@ -35,12 +35,16 @@ function watch() {
 		var start = new Date();
 		start.setHours(start.getHours() - 1);
 
-		if (start < date) {
-			sleep();
-		}
-
 		//always clear
-		clear();
+		clear().then(() => {
+
+			/**
+			 * Checks if the date is recent
+			 */
+			if (start < date) {
+				sleep();
+			}
+		});
 	});
 }
 
