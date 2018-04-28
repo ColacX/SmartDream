@@ -14,7 +14,6 @@ var database = app.database();
 
 function sleep() {
 	console.log("sleep");
-	//exec(`powercfg -hibernate off`);
 	exec(`rundll32.exe powrprof.dll,SetSuspendState 0,1,0`);
 }
 
@@ -33,7 +32,7 @@ function watch() {
 		var data = snapshot.val();
 		var date = new Date(data.date);
 		var start = new Date();
-		start.setHours(start.getHours() - 1);
+		start.setMinutes(start.getMinutes() - 1);
 
 		//always clear
 		clear().then(() => {

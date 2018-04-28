@@ -1,6 +1,8 @@
 var Service = require('node-windows').Service;
 var scriptPath = require('path').join(__dirname, 'main.js');
 console.log(scriptPath);
+var exec = require('child_process').exec;
+exec(`powercfg -hibernate off`);
 
 // Create a new service object
 var svc = new Service({
