@@ -1,17 +1,16 @@
 {
-  "name": "smartdream",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "firebase": "^4.6.0",
-    "firebase-admin": "^5.9.0",
-    "firebase-functions": "^0.8.1",
-    "node-windows": "^0.1.14"
-  }
+	"name": "smartdream",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"firebase": "^4.6.0",
+		"firebase-admin": "^5.9.0",
+		"firebase-functions": "^0.8.1",
+		"node-windows": "^0.1.14"
+	}
 }

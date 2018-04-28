@@ -1,5 +1,5 @@
 var Service = require('node-windows').Service;
-var scriptPath = require('path').join(__dirname, 'main.js');
+var scriptPath = require('path').join(__dirname, 'service_main.js');
 console.log(scriptPath);
 
 // Create a new service object
